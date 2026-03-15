@@ -1,0 +1,9 @@
+target-version = "py313"
+
+line-length = 120
+
+[lint]
+# Disable fix for unused imports (`F401`)
+unfixable = [
+    "F401",
+]

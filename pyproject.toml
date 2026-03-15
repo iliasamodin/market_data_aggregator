@@ -1,0 +1,29 @@
+[project]
+name = "market-data-aggregator"
+version = "0.1.0"
+description = """
+Market data collection and aggregation service.
+It implements positional trading strategies and notifies the trader about potential market entry points.
+"""
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "commitizen>=4.13.9",
+    "dotenv>=0.9.9",
+    "pre-commit>=4.5.1",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.13.1",
+    "robyn>=0.81.0",
+    "tradingview-ta>=3.3.0",
+]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+
+version_provider = "pep621"
+
+update_changelog_on_bump = true
+
+version_files = [
+    "src/adapters/primary/http/robyn_app/wsgi.py:__version__"
+]

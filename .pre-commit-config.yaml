@@ -1,0 +1,18 @@
+repos:
+  # Commitizen
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.13.9
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+
+  # Ruff (Linter and formatter)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.6 
+    hooks:
+      - id: ruff
+        args: [ --fix ]
+        exclude: migrations/versions
+
+      - id: ruff-format
+        exclude: migrations/versions
