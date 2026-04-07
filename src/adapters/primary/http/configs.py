@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 load_dotenv()
 
 
-class Settings(BaseSettings):
+class HTTPAdapterConfigs(BaseSettings):
     # API
     HOST: str = "0.0.0.0"
     PORT: int = 1500
@@ -13,4 +13,4 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env")
 
 
-settings = Settings()
+http_adapter_configs = HTTPAdapterConfigs()

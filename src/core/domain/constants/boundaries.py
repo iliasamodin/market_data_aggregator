@@ -1,0 +1,2 @@
+ZERO_SHARE = 0.0
+UNIT_SHARE = 1.0
