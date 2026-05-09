@@ -1,9 +1,9 @@
 from adapters.primary.http.robyn_app.application import app
-from src.configs import settings
+from adapters.primary.http.configs import http_adapter_configs
 
 
 if __name__ == "__main__":
     app.start(
-        host=settings.HOST,
-        port=settings.PORT,
+        host=http_adapter_configs.HOST,
+        port=http_adapter_configs.PORT,
     )
