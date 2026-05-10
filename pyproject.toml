@@ -16,8 +16,10 @@ dependencies = [
     "pytest>=9.0.3",
     "pytest-cov>=7.1.0",
     "robyn>=0.81.0",
+    "setuptools>=82.0.1",
     "tradingview-ta>=3.3.0",
     "uuid-utils>=0.14.1",
+    "wheel>=0.47.0",
 ]
 
 [tool.commitizen]
@@ -30,3 +32,16 @@ update_changelog_on_bump = true
 version_files = [
     "src/adapters/primary/http/robyn_app/wsgi.py:__version__"
 ]
+
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.setuptools.package-dir]
+src = "src"
