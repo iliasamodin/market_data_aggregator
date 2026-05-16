@@ -1,12 +1,11 @@
 from abc import ABC, abstractmethod
 
 from src.core.domain.constants.signal_status import SignalStatusEnum
-from src.core.domain.constants.timeframe import TimeframeEnum
 from src.core.domain.entities.group import GroupEntity
 from src.core.domain.entities.ticker import TickerEntity
 
 
-class NotificationPort(ABC):
+class NotificationProviderPort(ABC):
     """
     Port for sending notifications to external systems.
     """
@@ -16,5 +15,4 @@ class NotificationPort(ABC):
         self,
         ticker: TickerEntity,
         group: GroupEntity,
-        timeframe: TimeframeEnum,
     ) -> SignalStatusEnum: ...
