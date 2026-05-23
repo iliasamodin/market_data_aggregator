@@ -18,6 +18,7 @@ class GroupEntity(BaseEntityWithIDAndTitle):
     joined by the AND operator.
     """
 
+    description: str
     is_active: bool = True
 
     algorithm_config_ids: list[CustomUUID] = Field(default_factory=list)
