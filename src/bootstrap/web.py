@@ -1,6 +1,9 @@
 from robyn import Robyn
 from robyn.openapi import OpenAPI, OpenAPIInfo
 
+from src.bootstrap.exceptions.lifespan import FailedToCloseEngineConnectsToDBException
+from src.infrastructure.database.engine import engine
+
 __version__ = "0.1.0"
 
 app = Robyn(
@@ -19,15 +22,14 @@ app = Robyn(
 )
 
 
-@app.startup_handler
-def startup_event():
-    """
-    Startup event handler.
-    """
-
-
 @app.shutdown_handler
 def shutdown_event():
     """
     Shutdown event handler.
     """
+
+    try:
+        engine.dispose()
+
+    except Exception:
+        raise FailedToCloseEngineConnectsToDBException()
