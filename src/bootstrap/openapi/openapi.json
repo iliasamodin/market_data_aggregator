@@ -1,0 +1,84 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Market data aggregator",
+    "version": "0.1.0",
+    "description": "Market data collection and aggregation service. It implements positional trading strategies and notifies the trader about potential market entry points.",
+    "termsOfService": null,
+    "contact": {
+      "name": null,
+      "url": null,
+      "email": null
+    },
+    "license": {
+      "name": null,
+      "url": null
+    },
+    "servers": [],
+    "externalDocs": {
+      "description": null,
+      "url": null
+    },
+    "components": {
+      "schemas": {},
+      "responses": {},
+      "parameters": {},
+      "examples": {},
+      "requestBodies": {},
+      "securitySchemes": {
+        "BearerAuth": {
+          "type": "http",
+          "scheme": "bearer"
+        }
+      },
+      "links": {},
+      "callbacks": {},
+      "pathItems": {}
+    }
+  },
+  "paths": {
+    "/signal-evaluator/v1/execute": {
+      "post": {
+        "summary": "",
+        "description": "Trigger a full cycle of trading signal evaluation.\n\nRuns the evaluation cycle for all active tickers\nand returns execution statistics.\n\n:return: 200 with SignalEvaluationResultDTO on success,\n401 if the Authorization header is absent or the key is invalid,\n503 if required master data is missing in the database,\n500 on unexpected error.",
+        "parameters": [],
+        "tags": [
+          "signal-evaluator"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "responses": {},
+    "parameters": {},
+    "examples": {},
+    "requestBodies": {},
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "links": {},
+    "callbacks": {},
+    "pathItems": {}
+  },
+  "servers": [],
+  "externalDocs": null
+}
