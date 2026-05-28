@@ -1,4 +1,13 @@
 repos:
+  # OpenAPI spec generation
+  - repo: local
+    hooks:
+      - id: generate-openapi
+        name: Generate OpenAPI spec
+        entry: uv run python scripts/generate_openapi.py
+        language: system
+        always_run: true
+
   # Commitizen
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v4.13.9

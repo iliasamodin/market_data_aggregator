@@ -21,7 +21,6 @@ logs/
 data/
 temp/
 *.csv
-*.json
 
 # Tests
 .pytest_cache/

@@ -4,13 +4,19 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 load_dotenv()
 
 
-class HTTPAdapterConfigs(BaseSettings):
+class HTTPServerConfigs(BaseSettings):
     # API
     HOST: str = "0.0.0.0"
     PORT: int = 1500
     API_PREFIX: str = "/api"
 
-    model_config = SettingsConfigDict(env_file=".env")
+    # Auth
+    API_AUTH_KEY: str
+
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="allow",
+    )
 
 
-http_adapter_configs = HTTPAdapterConfigs()
+http_server_configs = HTTPServerConfigs()  # type: ignore
