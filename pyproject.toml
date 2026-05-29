@@ -1,6 +1,6 @@
 [project]
 name = "market-data-aggregator"
-version = "0.1.0"
+version = "0.2.0"
 description = """
 Market data collection and aggregation service.
 It implements positional trading strategies and notifies the trader about potential market entry points.
@@ -8,13 +8,22 @@ It implements positional trading strategies and notifies the trader about potent
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "alembic>=1.18.4",
     "commitizen>=4.13.9",
+    "dependency-injector>=4.49.0",
     "dotenv>=0.9.9",
     "pre-commit>=4.5.1",
+    "psycopg2-binary>=2.9",
     "pydantic>=2.12.5",
     "pydantic-settings>=2.13.1",
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
     "robyn>=0.81.0",
+    "setuptools>=82.0.1",
+    "sqlalchemy>=2.0",
     "tradingview-ta>=3.3.0",
+    "uuid-utils>=0.14.1",
+    "wheel>=0.47.0",
 ]
 
 [tool.commitizen]
@@ -25,5 +34,18 @@ version_provider = "pep621"
 update_changelog_on_bump = true
 
 version_files = [
-    "src/adapters/primary/http/robyn_app/wsgi.py:__version__"
+    "src/bootstrap/web.py:__version__"
 ]
+
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.setuptools.package-dir]
+src = "src"

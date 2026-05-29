@@ -9,6 +9,7 @@ __pycache__/
 venv/
 .venv/
 env/
+*.egg-info/
 
 # Envs
 .env
@@ -20,7 +21,6 @@ logs/
 data/
 temp/
 *.csv
-*.json
 
 # Tests
 .pytest_cache/
@@ -29,6 +29,7 @@ htmlcov/
 coverage.xml
 *.cover
 .tox/
+dumps/
 
 # IDE
 .idea/
