@@ -170,6 +170,10 @@ class SignalEvaluatorUseCase(SignalEvaluatorInputPort):
         )
 
         self._evaluate_signals(map_of_ticker_ids_and_snapshots=map_of_ticker_ids_and_snapshots)
+        logging.log(
+            level=logging.INFO,
+            msg=SignalEvaluatorMessagesEnum.SIGNAL_EVALUATION_COMPLETED.format(result=self._result),
+        )
 
         return self._result
 
@@ -283,6 +287,7 @@ class SignalEvaluatorUseCase(SignalEvaluatorInputPort):
         """
 
         def evaluate_signal(
+            ticker: TickerEntity,
             calculation_config: SignalCalculationConfigEntity,
             group: GroupEntity,
             algorithm_configs: list[AlgorithmConfigEntity],
@@ -291,6 +296,7 @@ class SignalEvaluatorUseCase(SignalEvaluatorInputPort):
             """
             Evaluate signal for a ticker.
 
+            :param ticker: Ticker entity.
             :param calculation_config: Signal calculation configuration.
             :param group: Group of ticker.
             :param algorithm_configs: Configurations of algorithms.
@@ -365,6 +371,7 @@ class SignalEvaluatorUseCase(SignalEvaluatorInputPort):
 
                 future_to_signal = self._thread_pool.submit(
                     evaluate_signal,
+                    ticker=ticker,
                     calculation_config=calculation_config,
                     group=group,
                     algorithm_configs=algorithm_configs,

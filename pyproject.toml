@@ -1,6 +1,6 @@
 [project]
 name = "market-data-aggregator"
-version = "0.2.0"
+version = "0.3.0"
 description = """
 Market data collection and aggregation service.
 It implements positional trading strategies and notifies the trader about potential market entry points.
