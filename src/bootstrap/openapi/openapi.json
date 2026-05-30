@@ -37,7 +37,7 @@
     }
   },
   "paths": {
-    "/signal-evaluator/v1/execute": {
+    "/api/signal-evaluator/v1/execute": {
       "post": {
         "summary": "",
         "description": "Trigger a full cycle of trading signal evaluation.\n\nRuns the evaluation cycle for all active tickers\nand returns execution statistics.\n\n:return: 200 with SignalEvaluationResultDTO on success,\n401 if the Authorization header is absent or the key is invalid,\n503 if required master data is missing in the database,\n500 on unexpected error.",
