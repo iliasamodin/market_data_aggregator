@@ -1,6 +1,6 @@
 [project]
 name = "market-data-aggregator"
-version = "0.1.0"
+version = "0.2.0"
 description = """
 Market data collection and aggregation service.
 It implements positional trading strategies and notifies the trader about potential market entry points.
@@ -34,7 +34,7 @@ version_provider = "pep621"
 update_changelog_on_bump = true
 
 version_files = [
-    "src/adapters/primary/http/robyn_app/wsgi.py:__version__"
+    "src/bootstrap/web.py:__version__"
 ]
 
 [build-system]
