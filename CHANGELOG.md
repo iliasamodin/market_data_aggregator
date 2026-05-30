@@ -1,3 +1,14 @@
+## 0.3.0 (2026-05-30)
+
+### Fix
+
+- **endpoints**: Router prefix configuration adapted to Robyn specifics
+- **use-cases**: Removed unintentional closure of tickers causing a race condition
+
+### Refactor
+
+- **use-cases**: Added logging of the trading signal evaluation result
+
 ## 0.2.0 (2026-05-30)
 
 ### Feat
