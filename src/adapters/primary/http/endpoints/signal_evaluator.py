@@ -17,6 +17,7 @@ from src.core.ports.input.signal_evaluator import SignalEvaluatorInputPort
 
 def create_signal_evaluator_router(
     signal_evaluator_factory: Callable[[], SignalEvaluatorInputPort],
+    prefix: str = "",
 ) -> SubRouter:
     """
     Build and return a SubRouter for the signal evaluator endpoint.
@@ -29,13 +30,15 @@ def create_signal_evaluator_router(
 
     :param signal_evaluator_factory: Zero-argument callable
     that returns a ready SignalEvaluatorInputPort instance.
+    :param prefix: URL prefix to prepend to all routes
+    in this router (e.g. the global API prefix).
 
     :return: Configured SubRouter with the execute endpoint registered.
     """
 
     tag = "signal-evaluator"
 
-    router = SubRouter(__file__, prefix=f"/{tag}")
+    router = SubRouter(__file__, prefix=f"{prefix}/{tag}")
     router.configure_authentication(api_key_auth_handler)
 
     @router.post(
