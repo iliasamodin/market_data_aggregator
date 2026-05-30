@@ -170,6 +170,10 @@ class SignalEvaluatorUseCase(SignalEvaluatorInputPort):
         )
 
         self._evaluate_signals(map_of_ticker_ids_and_snapshots=map_of_ticker_ids_and_snapshots)
+        logging.log(
+            level=logging.INFO,
+            msg=SignalEvaluatorMessagesEnum.SIGNAL_EVALUATION_COMPLETED.format(result=self._result),
+        )
 
         return self._result
 
