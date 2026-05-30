@@ -95,7 +95,7 @@ Before persisting and sending a new signal, the service queries `signal_history`
 ```
 src/core/domain/
 ├── entities/            # Aggregate roots and entities
-<!-- ├── value_objects/       # Immutable value objects (ExchangeVO, MarketDataSnapshotVO, IndicatorsSnapshotVO) -->
+├── value_objects/       # Immutable value objects (ExchangeVO, MarketDataSnapshotVO, IndicatorsSnapshotVO)
 ├── strategies/          # Pure strategy functions and STRATEGY_MAP registry
 └── constants/           # Domain enumerations (AlgorithmEnum, TimeframeEnum, ScreenerEnum, ...)
 
